@@ -1,41 +1,23 @@
-# Dependencies
-node_modules/
+node_modules
 
-# Build outputs
-.svelte-kit/
-build/
-dist/
-.vercel/
-.netlify/
-
-# Environment
-.env
-.env.local
-.env.*.local
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
+# Output
+.output
+.vercel
+.netlify
+.wrangler
+/.svelte-kit
+/build
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
+# Env
+.env
+.env.*
+!.env.example
+!.env.test
 
-# Claude/AI planning files (keep private)
-CLAUDE.md
-PROJECT_TASKS.md
-.claude/
-scripts/create-github-tasks.*
-
-# Local planning
-planning/
-docs-planning/
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
