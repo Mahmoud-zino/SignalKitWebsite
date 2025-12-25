@@ -17,6 +17,7 @@
 		History
 	} from 'lucide-svelte';
 	import { Logo } from '$lib';
+	import LightSwtich from '$lib/components/LightSwtich.svelte';
 
 	let { children } = $props();
 
@@ -84,7 +85,7 @@
 		<AppBar.Trail>
 			<a href="/docs" class="btn hidden hover:preset-tonal sm:inline-flex">Docs</a>
 			<a href="/examples" class="btn hidden hover:preset-tonal sm:inline-flex">Examples</a>
-			<div class="h-8 w-8 rounded bg-surface-200-800"></div>
+			<LightSwtich />
 		</AppBar.Trail>
 	</AppBar.Toolbar>
 </AppBar>
@@ -95,7 +96,9 @@
 			<Navigation.Content class="overflow-y-auto p-2">
 				{#each Object.entries(navGroups) as [groupName, links]}
 					<Navigation.Group>
-						<Navigation.Label class="mb-2 px-2 text-xs font-semibold text-secondary-500 uppercase">
+						<Navigation.Label
+							class="mb-2 px-2 text-xs font-semibold text-primary-600-400 uppercase"
+						>
 							{groupName}
 						</Navigation.Label>
 						<Navigation.Menu class="space-y-1">
