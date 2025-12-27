@@ -1,8 +1,6 @@
 <script lang="ts">
 	import './layout.css';
-	import { Navigation, Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
 	import {
-		X,
 		BookOpen,
 		Zap,
 		Radio,
@@ -18,6 +16,7 @@
 	import Header from '$lib/components/Header.svelte';
 	import Sidebar from '$lib/components/Sidebar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import MobileNav from '$lib/components/MobileNav.svelte';
 
 	let { children } = $props();
 
@@ -66,52 +65,15 @@
 
 <Header onToggleDrawer={toggleDrawer} />
 
+<MobileNav
+	{navGroups}
+	{drawerOpen}
+	onDrawerOpenChange={(open) => (drawerOpen = open)}
+	onCloseDrawer={closeDrawer}
+/>
+
 <div class="grid grid-cols-1 md:grid-cols-[280px_1fr]">
 	<Sidebar {navGroups} />
-
-	<Portal>
-		<Dialog open={drawerOpen} onOpenChange={(e) => (drawerOpen = e.open)}>
-			<Dialog.Backdrop class="fixed inset-0 bg-black/50" />
-			<Dialog.Content
-				class="data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left fixed top-0 left-0 h-full w-72 bg-surface-50-950 shadow-xl"
-			>
-				<Navigation layout="sidebar" class="grid h-full grid-rows-[auto_1fr]">
-					<Navigation.Header
-						class="flex items-center justify-end border-b border-surface-500/30 p-4"
-					>
-						<Dialog.CloseTrigger class="btn-icon hover:preset-tonal" aria-label="Close menu">
-							<X class="size-6" />
-						</Dialog.CloseTrigger>
-					</Navigation.Header>
-
-					<Navigation.Content class="overflow-y-auto p-2">
-						{#each Object.entries(navGroups) as [groupName, links]}
-							<Navigation.Group>
-								<Navigation.Label
-									class="mb-2 px-2 text-xs font-semibold text-secondary-500 uppercase"
-								>
-									{groupName}
-								</Navigation.Label>
-								<Navigation.Menu class="space-y-1">
-									{#each links as link}
-										{@const Icon = link.icon}
-										<Navigation.TriggerAnchor
-											href={link.href}
-											class="flex items-center gap-3 rounded px-3 py-2.5 hover:bg-surface-200-800"
-											onclick={closeDrawer}
-										>
-											<Icon class="size-5" />
-											<Navigation.TriggerText>{link.label}</Navigation.TriggerText>
-										</Navigation.TriggerAnchor>
-									{/each}
-								</Navigation.Menu>
-							</Navigation.Group>
-						{/each}
-					</Navigation.Content>
-				</Navigation>
-			</Dialog.Content>
-		</Dialog>
-	</Portal>
 
 	<main class="min-h-[calc(100vh-16rem)] bg-surface-100-900">
 		<div class="mx-auto max-w-4xl p-6">
