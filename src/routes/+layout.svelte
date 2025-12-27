@@ -17,6 +17,7 @@
 	import Sidebar from '$lib/components/Sidebar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import MobileNav from '$lib/components/MobileNav.svelte';
+	import PageHeader from '$lib/components/PageHeader.svelte';
 
 	let { children } = $props();
 
@@ -77,6 +78,7 @@
 
 	<main class="min-h-[calc(100vh-16rem)] bg-surface-100-900">
 		<div class="mx-auto max-w-4xl p-6">
+			<PageHeader />
 			{@render children()}
 		</div>
 	</main>
