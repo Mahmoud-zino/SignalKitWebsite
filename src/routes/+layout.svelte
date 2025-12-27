@@ -1,8 +1,7 @@
 <script lang="ts">
 	import './layout.css';
-	import { AppBar, Navigation, Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
+	import { Navigation, Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
 	import {
-		Menu,
 		X,
 		BookOpen,
 		Zap,
@@ -16,7 +15,7 @@
 		FileCode,
 		History
 	} from 'lucide-svelte';
-	import { Logo } from '$lib';
+	import Header from '$lib/components/Header.svelte';
 
 	let { children } = $props();
 
@@ -63,30 +62,7 @@
 	<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 </svelte:head>
 
-<AppBar class="sticky top-0 z-50 border-b border-surface-500/30 bg-surface-50-950">
-	<AppBar.Toolbar class="grid-cols-[auto_1fr_auto]">
-		<AppBar.Lead class="flex items-center gap-2">
-			<button
-				type="button"
-				class="btn-icon hover:preset-tonal md:hidden"
-				onclick={toggleDrawer}
-				aria-label="Toggle menu"
-			>
-				<Menu class="size-6" />
-			</button>
-			<a href="/" class="flex items-center gap-2">
-				<Logo class="h-10" />
-				<span class="text-xl font-bold">SignalKit</span>
-			</a>
-		</AppBar.Lead>
-
-		<AppBar.Headline></AppBar.Headline>
-		<AppBar.Trail>
-			<a href="/docs" class="btn hidden hover:preset-tonal sm:inline-flex">Docs</a>
-			<a href="/examples" class="btn hidden hover:preset-tonal sm:inline-flex">Examples</a>
-		</AppBar.Trail>
-	</AppBar.Toolbar>
-</AppBar>
+<Header onToggleDrawer={toggleDrawer} />
 
 <div class="grid grid-cols-1 md:grid-cols-[280px_1fr]">
 	<aside class="sticky top-16 hidden h-[calc(100vh-4rem)] md:block">
