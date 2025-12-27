@@ -17,7 +17,6 @@
 		History
 	} from 'lucide-svelte';
 	import { Logo } from '$lib';
-	import LightSwtich from '$lib/components/LightSwtich.svelte';
 
 	let { children } = $props();
 
@@ -85,7 +84,6 @@
 		<AppBar.Trail>
 			<a href="/docs" class="btn hidden hover:preset-tonal sm:inline-flex">Docs</a>
 			<a href="/examples" class="btn hidden hover:preset-tonal sm:inline-flex">Examples</a>
-			<LightSwtich />
 		</AppBar.Trail>
 	</AppBar.Toolbar>
 </AppBar>
