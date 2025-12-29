@@ -1,7 +1,56 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import SignalFlowDiagram from '$lib/components/docs/landingPage/SignalFlowDiagram.svelte';
+	import HighlightedCode from '$lib/components/HighlightedCode.svelte';
 	import { Unplug, Eye, CodeXml, Zap, Wrench } from 'lucide-svelte';
+
+	let activeTab = $state(0);
+
+	const codeExamples = [
+		{
+			title: '1. Create Channel',
+			code: `// Create a new signal channel (ScriptableObject)
+[CreateAssetMenu(menuName = "Signals/Player Health Changed")]
+public class PlayerHealthSignal : SignalChannel<int> { }`
+		},
+		{
+			title: '2. Raise Signal',
+			code: `// Raise a signal from anywhere in your code
+public class PlayerHealth : MonoBehaviour
+{
+    [SerializeField] private PlayerHealthSignal healthSignal;
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthSignal.Raise(currentHealth); // Broadcast to all listeners
+    }
+}`
+		},
+		{
+			title: '3. Listen',
+			code: `// Listen to signals - no references needed!
+public class HealthUI : MonoBehaviour
+{
+    [SerializeField] private PlayerHealthSignal healthSignal;
+
+    private void OnEnable()
+    {
+        healthSignal.OnRaised += UpdateHealthBar;
+    }
+
+    private void OnDisable()
+    {
+        healthSignal.OnRaised -= UpdateHealthBar;
+    }
+
+    private void UpdateHealthBar(int newHealth)
+    {
+        // Update UI
+    }
+}`
+		}
+	];
 </script>
 
 <!-- Hero Section -->
@@ -116,6 +165,41 @@
 				Raise signals directly from the Inspector, view active listeners, and use the visual
 				debugger with recording and playback.
 			</p>
+		</div>
+	</div>
+</section>
+
+<hr />
+
+<!-- Quick Start Section -->
+<section class="mx-auto max-w-5xl px-6 py-16 lg:py-24">
+	<h2 class="mb-4 text-center text-3xl font-bold md:text-4xl">Get Started in Minutes</h2>
+	<p class="mb-12 text-center text-lg text-surface-600-400">
+		See how easy it is to decouple your Unity project with SignalKit
+	</p>
+
+	<div class="rounded-2xl border border-surface-500/30 bg-surface-50-950 p-8">
+		<!-- Code example tabs -->
+		<div class="mb-6 flex flex-wrap gap-2">
+			{#each codeExamples as example, index (example.title)}
+				<button
+					onclick={() => (activeTab = index)}
+					class={activeTab === index
+						? 'btn preset-filled-primary-500 px-4 py-2 text-sm'
+						: 'btn preset-tonal px-4 py-2 text-sm'}
+				>
+					{example.title}
+				</button>
+			{/each}
+		</div>
+
+		<!-- Code block -->
+		<HighlightedCode code={codeExamples[activeTab].code} lang="csharp" />
+
+		<div class="mt-6 text-center">
+			<a href={resolve('/docs/getting-started')} class="btn preset-filled-primary-500 px-6 py-3">
+				View Full Documentation
+			</a>
 		</div>
 	</div>
 </section>
