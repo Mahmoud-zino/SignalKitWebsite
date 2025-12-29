@@ -19,6 +19,7 @@
 	import MobileNav from '$lib/components/MobileNav.svelte';
 	import PageHeader from '$lib/components/PageHeader.svelte';
 	import TableOfContents from '$lib/components/TableOfContents.svelte';
+	import PrevNextNav from '$lib/components/PrevNextNav.svelte';
 	import { hasTocContent } from '$lib/stores/toc';
 
 	let { children } = $props();
@@ -86,6 +87,7 @@
 		<div class="mx-auto max-w-4xl p-6">
 			<PageHeader />
 			{@render children()}
+			<PrevNextNav {navGroups} />
 		</div>
 	</main>
 	<aside
