@@ -299,7 +299,7 @@ public class HealthUI : MonoBehaviour
 <!-- CTA Section -->
 <section class="mx-auto max-w-4xl px-6 py-16 lg:py-24">
 	<div
-		class="rounded-2xl border border-primary-500/30 bg-gradient-to-br from-primary-500/10 to-secondary-500/10 p-8 text-center lg:p-12"
+		class="rounded-2xl border border-primary-500/30 bg-linear-to-br from-primary-500/10 to-secondary-500/10 p-8 text-center lg:p-12"
 	>
 		<h2 class="mb-4 text-3xl font-bold md:text-4xl">Ready to Decouple Your Game?</h2>
 		<p class="mx-auto mb-8 max-w-2xl text-lg text-surface-600-400">
