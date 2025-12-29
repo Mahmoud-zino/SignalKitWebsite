@@ -203,3 +203,93 @@ public class HealthUI : MonoBehaviour
 		</div>
 	</div>
 </section>
+
+<hr />
+
+<!-- Why SignalKit Section -->
+<section class="mx-auto max-w-6xl px-6 py-16 lg:py-24">
+	<h2 class="mb-16 text-center text-3xl font-bold md:text-4xl">Why SignalKit?</h2>
+
+	<!-- Problem/Solution Headers (Desktop only) -->
+	<div class="mb-8 hidden gap-12 lg:grid lg:grid-cols-2 lg:gap-16">
+		<h3 class="text-2xl font-bold text-error-500">The Problem</h3>
+		<h3 class="text-2xl font-bold text-success-500">The Solution</h3>
+	</div>
+
+	<!-- Problem/Solution Pairs -->
+	<div class="space-y-8 lg:space-y-6">
+		<!-- Pair 1: Tight Coupling -->
+		<div class="grid gap-4 lg:grid-cols-2 lg:gap-16">
+			<div class="rounded-lg border border-error-500/30 bg-error-500/5 p-6">
+				<h4 class="mb-2 font-semibold text-error-400">
+					<span class="lg:hidden">The Problem:</span> Tight Coupling
+				</h4>
+				<p class="text-sm text-surface-600-400">
+					Your UI needs a reference to PlayerHealth. Your AudioManager needs a reference to the
+					Enemy script. Everything knows about everything else, creating a tangled mess.
+				</p>
+			</div>
+			<div class="rounded-lg border border-success-500/30 bg-success-500/5 p-6">
+				<h4 class="mb-2 font-semibold text-success-400">
+					<span class="lg:hidden">The Solution:</span> Zero Coupling
+				</h4>
+				<p class="text-sm text-surface-600-400">
+					Components communicate through ScriptableObject channels. Your UI doesn't know about
+					PlayerHealth. Your AudioManager doesn't know about enemies. They just listen to signals.
+				</p>
+			</div>
+		</div>
+
+		<!-- Pair 2: Fragile Refactoring -->
+		<div class="grid gap-4 lg:grid-cols-2 lg:gap-16">
+			<div class="rounded-lg border border-error-500/30 bg-error-500/5 p-6">
+				<h4 class="mb-2 font-semibold text-error-400">
+					<span class="lg:hidden">The Problem:</span> Fragile Refactoring
+				</h4>
+				<p class="text-sm text-surface-600-400">
+					Want to rename a class? Move it to another namespace? Break it into smaller pieces? Good
+					luck tracking down every reference across your entire project.
+				</p>
+			</div>
+			<div class="rounded-lg border border-success-500/30 bg-success-500/5 p-6">
+				<h4 class="mb-2 font-semibold text-success-400">
+					<span class="lg:hidden">The Solution:</span> Fearless Refactoring
+				</h4>
+				<p class="text-sm text-surface-600-400">
+					Rename, move, restructure—your signals keep working. Change your entire architecture
+					without breaking connections. Your code stays flexible.
+				</p>
+			</div>
+		</div>
+
+		<!-- Pair 3: Testing Nightmare -->
+		<div class="grid gap-4 lg:grid-cols-2 lg:gap-16">
+			<div class="rounded-lg border border-error-500/30 bg-error-500/5 p-6">
+				<h4 class="mb-2 font-semibold text-error-400">
+					<span class="lg:hidden">The Problem:</span> Testing Nightmare
+				</h4>
+				<p class="text-sm text-surface-600-400">
+					Can't test your UI without the entire game running. Can't test audio without instantiating
+					enemies. Unit testing? Forget about it.
+				</p>
+			</div>
+			<div class="rounded-lg border border-success-500/30 bg-success-500/5 p-6">
+				<h4 class="mb-2 font-semibold text-success-400">
+					<span class="lg:hidden">The Solution:</span> Easy Testing
+				</h4>
+				<p class="text-sm text-surface-600-400">
+					Test components in isolation. Mock signals effortlessly. Unit test your UI without
+					starting PlayMode. Your tests run fast and stay reliable.
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Bottom Statement -->
+	<div class="mt-16 text-center">
+		<p class="mx-auto max-w-3xl text-xl text-surface-600-400">
+			SignalKit gives you the architecture large studios use, without the complexity. Build
+			maintainable games from day one.
+		</p>
+	</div>
+</section>
