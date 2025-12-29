@@ -2,6 +2,7 @@
 	import { AppBar } from '@skeletonlabs/skeleton-svelte';
 	import { Menu } from 'lucide-svelte';
 	import { Logo } from '$lib';
+	import { resolve } from '$app/paths';
 
 	interface Props {
 		onToggleDrawer: () => void;
@@ -21,7 +22,7 @@
 			>
 				<Menu class="size-6" />
 			</button>
-			<a href="/" class="flex items-center gap-2">
+			<a href={resolve('/')} class="flex items-center gap-2">
 				<Logo class="h-10" />
 				<span class="text-xl font-bold">SignalKit</span>
 			</a>
@@ -29,8 +30,10 @@
 
 		<AppBar.Headline></AppBar.Headline>
 		<AppBar.Trail>
-			<a href="/docs" class="btn hidden hover:preset-tonal sm:inline-flex">Docs</a>
-			<a href="/examples" class="btn hidden hover:preset-tonal sm:inline-flex">Examples</a>
+			<a href={resolve('/docs')} class="btn hidden hover:preset-tonal sm:inline-flex">Docs</a>
+			<a href={resolve('/examples')} class="btn hidden hover:preset-tonal sm:inline-flex"
+				>Examples</a
+			>
 		</AppBar.Trail>
 	</AppBar.Toolbar>
 </AppBar>

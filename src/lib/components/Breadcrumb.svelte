@@ -11,13 +11,13 @@
 
 		if (path === '/') return [];
 
-		const sagments = path.split('/').filter(Boolean);
+		const segments = path.split('/').filter(Boolean);
 		const items: BreadcrumbItem[] = [{ label: 'Home', href: '/' }];
 
 		let currentPath = '';
-		sagments.forEach((sagment) => {
-			currentPath += `/${sagment}`;
-			const label = sagment
+		segments.forEach((segment) => {
+			currentPath += `/${segment}`;
+			const label = segment
 				.split('-')
 				.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
 				.join(' ');
@@ -29,8 +29,9 @@
 
 {#if breadcrumbs.length > 0}
 	<nav aria-label="Breadcrumb" class="text-sm">
-		{#each breadcrumbs as item, index}
+		{#each breadcrumbs as item, index (item.href)}
 			{#if index < breadcrumbs.length - 1}
+				<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
 				<a href={item.href} class="anchor">{item.label}</a>
 				<span class="mx-2 text-surface-600-400">/</span>
 			{:else}

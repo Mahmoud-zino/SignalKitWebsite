@@ -2,6 +2,7 @@ import { defineMDSveXConfig } from 'mdsvex';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { codeToHtml } from 'shiki';
+import rehypeSlug from 'rehype-slug';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -18,12 +19,12 @@ const config = defineMDSveXConfig({
 				lang: lang || 'plaintext',
 				theme: 'github-dark'
 			});
-			const escaped = html
-				.replace(/`/g, '\\`')
-				.replace(/\$/g, '\\$');
+			const escaped = html.replace(/`/g, '\\`').replace(/\$/g, '\\$');
 			return `{@html \`${escaped}\` }`;
 		}
 	},
+
+	rehypePlugins: [rehypeSlug],
 
 	layout: {
 		_: join(__dirname, './src/lib/layouts/mdsvex.svelte')
