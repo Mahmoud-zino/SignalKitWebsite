@@ -1,44 +1,35 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import SignalFlowDiagram from '$lib/components/docs/landingPage/SignalFlowDiagram.svelte';
+	import { Unplug, Eye, Code2, Zap, Wrench } from 'lucide-svelte';
 </script>
 
-<div class="min-h-screen bg-surface-100-900">
-	<div class="mx-auto max-w-6xl px-6 py-20">
-		<div class="text-center">
-			<h1 class="text-5xl font-bold md:text-7xl">SignalKit</h1>
-			<p class="mt-6 text-xl text-surface-600-400 md:text-2xl">Advanced event system for Unity</p>
-			<div class="mt-12 flex justify-center gap-4">
-				<a
-					href={resolve('/docs/getting-started')}
-					class="btn preset-filled-primary-500 px-8 py-3 text-lg"
-				>
-					Get Started
-				</a>
-				<a href={resolve('/docs')} class="btn preset-tonal px-8 py-3 text-lg">
-					View Documentation
-				</a>
-			</div>
-		</div>
-
-		<div class="mt-20 grid gap-8 md:grid-cols-3">
-			<div class="card p-6">
-				<h3 class="text-xl font-semibold">Type-Safe Events</h3>
-				<p class="mt-3 text-surface-600-400">
-					Define strongly-typed event channels with compile-time safety
-				</p>
-			</div>
-			<div class="card p-6">
-				<h3 class="text-xl font-semibold">Editor Integration</h3>
-				<p class="mt-3 text-surface-600-400">
-					Powerful editor tools for visualizing and debugging event flow
-				</p>
-			</div>
-			<div class="card p-6">
-				<h3 class="text-xl font-semibold">Code Generation</h3>
-				<p class="mt-3 text-surface-600-400">
-					Automatically generate boilerplate code for your events
-				</p>
-			</div>
+<!-- Hero Section -->
+<section class="mx-auto max-w-5xl px-6 py-20 lg:py-32">
+	<div class="text-center">
+		<h1 class="text-5xl font-bold leading-tight md:text-6xl lg:text-7xl">SignalKit</h1>
+		<p class="mt-6 text-2xl text-primary-400 md:text-3xl">
+			Decouple your Unity project. The modern way.
+		</p>
+		<p class="mx-auto mt-4 max-w-2xl text-lg text-surface-600-400">
+			Event-driven architecture built on ScriptableObjects. Type-safe, visual debugging, zero
+			coupling.
+		</p>
+		<div class="mt-8 flex flex-wrap justify-center gap-4">
+			<a
+				href={resolve('/docs/getting-started')}
+				class="btn preset-filled-primary-500 px-8 py-3 text-lg"
+			>
+				Get Started
+			</a>
+			<a href={resolve('/docs')} class="btn preset-tonal px-8 py-3 text-lg">
+				View Documentation
+			</a>
 		</div>
 	</div>
-</div>
+
+	<!-- Diagram below text -->
+	<div class="mt-16">
+		<SignalFlowDiagram />
+	</div>
+</section>
