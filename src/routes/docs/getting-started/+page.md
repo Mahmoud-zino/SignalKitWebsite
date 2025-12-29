@@ -94,10 +94,10 @@ If you're having trouble downloading from the Asset Store:
 
 Need help with installation? Here's how to get support:
 
-- **[Documentation](/docs)** - Browse the full documentation
-- **[Report an Issue](https://github.com/Mahmoud-zino/SignalKitWebsite/issues/new?labels=bug)** - Found a bug or installation problem
-- **[Request a Feature](https://github.com/Mahmoud-zino/SignalKitWebsite/issues/new?labels=enhancement)** - Suggest new features or improvements
-- **Unity Asset Store** - Leave a question in the Asset Store Q&A section
-- **Support Email** - Contact support for technical assistance
+- 📚 **[Documentation](/docs)** - Browse the full documentation
+- 🐛 **[Report an Issue](https://github.com/Mahmoud-zino/SignalKitWebsite/issues/new?labels=bug)** - Found a bug or installation problem
+- 💡 **[Request a Feature](https://github.com/Mahmoud-zino/SignalKitWebsite/issues/new?labels=enhancement)** - Suggest new features or improvements
+- 🛒 **Unity Asset Store** - Leave a question in the Asset Store Q&A section
+- ✉️ **Support Email** - Contact support for technical assistance
 
 If you encounter any issues during installation, please check the troubleshooting section above first.
