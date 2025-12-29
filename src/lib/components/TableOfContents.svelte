@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
+	import { page } from '$app/state';
 	import { mount, onMount, unmount } from 'svelte';
 	import { Link } from 'lucide-svelte';
 	import { hasTocContent } from '$lib/stores/toc';
@@ -13,12 +14,22 @@
 	let headings: Heading[] = $state([]);
 	let activeId = $state('');
 	let userClicked = false;
+	let instances: Array<ReturnType<typeof mount>> = [];
+	let updateActiveHeading: (() => void) | null = null;
+	let previousPathname = '';
 
-	onMount(() => {
+	function setupTOC() {
+		if (updateActiveHeading) {
+			window.removeEventListener('scroll', updateActiveHeading);
+			window.removeEventListener('resize', updateActiveHeading);
+			updateActiveHeading = null;
+		}
+		instances.forEach((icon) => unmount(icon));
+		instances = [];
+
 		hasTocContent.set(false);
 
 		const headingElements = document.querySelectorAll('article h2[id], article h3[id]');
-		const instances: Array<ReturnType<typeof mount>> = [];
 
 		headings = Array.from(headingElements).map((heading) => ({
 			id: heading.id,
@@ -58,7 +69,7 @@
 			hasTocContent.set(false);
 		}
 
-		function updateActiveHeading() {
+		updateActiveHeading = () => {
 			if (headings.length === 0 || userClicked) return;
 
 			for (let i = headings.length - 1; i >= 0; i--) {
@@ -77,16 +88,33 @@
 			if (activeId !== headings[0].id) {
 				activeId = headings[0].id;
 			}
-		}
+		};
 
 		window.addEventListener('scroll', updateActiveHeading, { passive: true });
 		window.addEventListener('resize', updateActiveHeading, { passive: true });
+	}
+
+	onMount(() => {
+		setupTOC();
 
 		return () => {
-			window.removeEventListener('scroll', updateActiveHeading);
-			window.removeEventListener('resize', updateActiveHeading);
+			if (updateActiveHeading) {
+				window.removeEventListener('scroll', updateActiveHeading);
+				window.removeEventListener('resize', updateActiveHeading);
+			}
 			instances.forEach((icon) => unmount(icon));
 		};
+	});
+
+	$effect(() => {
+		const pathname = page.url.pathname;
+
+		if (pathname !== previousPathname) {
+			previousPathname = pathname;
+			setTimeout(() => {
+				setupTOC();
+			}, 100);
+		}
 	});
 
 	function scrollToHeading(id: string) {
@@ -97,7 +125,7 @@
 				activeId = id;
 				window.location.hash = id;
 				const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-				const offsetPosition = elementPosition - 100;
+				const offsetPosition = elementPosition - 80;
 
 				window.scrollTo({
 					top: offsetPosition,
