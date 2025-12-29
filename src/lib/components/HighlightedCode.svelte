@@ -32,7 +32,7 @@
 </script>
 
 {#if highlightedHtml}
-	<div class="code-container overflow-x-auto">
+	<div class="code-container">
 		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 		{@html highlightedHtml}
 	</div>
@@ -44,14 +44,23 @@
 {/if}
 
 <style>
+	:global(.code-container) {
+		border-radius: 0.5rem;
+		overflow-x: auto;
+		background-color: #0d1117;
+	}
+
 	:global(.code-container pre) {
 		font-size: 0.75rem;
 		padding: 1.5rem;
-		border-radius: 0.5rem;
+		margin: 0;
+		width: max-content;
+		min-width: 100%;
 	}
 
 	:global(.code-container code.line-numbers) {
 		counter-reset: line;
+		display: block;
 	}
 
 	:global(.code-container code.line-numbers > [data-line]::before) {
