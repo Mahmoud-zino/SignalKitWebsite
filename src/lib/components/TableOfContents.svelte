@@ -17,7 +17,7 @@
 	onMount(() => {
 		hasTocContent.set(false);
 
-		const headingElements = document.querySelectorAll('article h2, article h3');
+		const headingElements = document.querySelectorAll('article h2[id], article h3[id]');
 		const instances: Array<ReturnType<typeof mount>> = [];
 
 		headings = Array.from(headingElements).map((heading) => ({
@@ -26,34 +26,34 @@
 			level: parseInt(heading.tagName.charAt(1))
 		}));
 
-		headingElements.forEach((heading) => {
-			heading.classList.add('heading-with-anchor');
-
-			const button = document.createElement('button');
-			button.className = 'heading-anchor-link';
-			button.setAttribute('aria-label', 'Link to section');
-
-			const iconContainer = document.createElement('span');
-			const linkIcon = mount(Link, { target: iconContainer, props: { size: 18 } });
-			instances.push(linkIcon);
-
-			button.appendChild(iconContainer);
-			button.onclick = (e) => {
-				e.preventDefault();
-				userClicked = true;
-				activeId = heading.id;
-				window.location.hash = heading.id;
-				setTimeout(() => {
-					userClicked = false;
-				}, 1000);
-			};
-
-			heading.appendChild(button);
-		});
-
 		if (headings.length > 0) {
 			activeId = headings[0].id;
 			hasTocContent.set(true);
+
+			headingElements.forEach((heading) => {
+				heading.classList.add('heading-with-anchor');
+
+				const button = document.createElement('button');
+				button.className = 'heading-anchor-link';
+				button.setAttribute('aria-label', 'Link to section');
+
+				const iconContainer = document.createElement('span');
+				const linkIcon = mount(Link, { target: iconContainer, props: { size: 18 } });
+				instances.push(linkIcon);
+
+				button.appendChild(iconContainer);
+				button.onclick = (e) => {
+					e.preventDefault();
+					userClicked = true;
+					activeId = heading.id;
+					window.location.hash = heading.id;
+					setTimeout(() => {
+						userClicked = false;
+					}, 1000);
+				};
+
+				heading.appendChild(button);
+			});
 		} else {
 			hasTocContent.set(false);
 		}
