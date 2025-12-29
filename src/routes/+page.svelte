@@ -1,15 +1,22 @@
+<script lang="ts">
+	import { resolve } from '$app/paths';
+</script>
+
 <div class="min-h-screen bg-surface-100-900">
 	<div class="mx-auto max-w-6xl px-6 py-20">
 		<div class="text-center">
 			<h1 class="text-5xl font-bold md:text-7xl">SignalKit</h1>
-			<p class="mt-6 text-xl text-surface-600-400 md:text-2xl">
-				Advanced event system for Unity
-			</p>
+			<p class="mt-6 text-xl text-surface-600-400 md:text-2xl">Advanced event system for Unity</p>
 			<div class="mt-12 flex justify-center gap-4">
-				<a href="/docs/getting-started" class="btn preset-filled-primary-500 text-lg px-8 py-3">
+				<a
+					href={resolve('/docs/getting-started')}
+					class="btn preset-filled-primary-500 px-8 py-3 text-lg"
+				>
 					Get Started
 				</a>
-				<a href="/docs" class="btn preset-tonal text-lg px-8 py-3"> View Documentation </a>
+				<a href={resolve('/docs')} class="btn preset-tonal px-8 py-3 text-lg">
+					View Documentation
+				</a>
 			</div>
 		</div>
 

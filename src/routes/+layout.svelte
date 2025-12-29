@@ -18,6 +18,8 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import MobileNav from '$lib/components/MobileNav.svelte';
 	import PageHeader from '$lib/components/PageHeader.svelte';
+	import TableOfContents from '$lib/components/TableOfContents.svelte';
+	import { hasTocContent } from '$lib/stores/toc';
 
 	let { children } = $props();
 
@@ -73,7 +75,11 @@
 	onCloseDrawer={closeDrawer}
 />
 
-<div class="grid grid-cols-1 md:grid-cols-[280px_1fr]">
+<div
+	class="grid grid-cols-1 md:grid-cols-[280px_1fr] {$hasTocContent
+		? 'lg:grid-cols-[280px_1fr_360px]'
+		: 'lg:grid-cols-[280px_1fr]'}"
+>
 	<Sidebar {navGroups} />
 
 	<main class="min-h-[calc(100vh-16rem)] bg-surface-100-900">
@@ -82,6 +88,12 @@
 			{@render children()}
 		</div>
 	</main>
+	<aside
+		class="hidden border-l border-surface-500/30 p-6 lg:block"
+		class:lg:hidden={!$hasTocContent}
+	>
+		<TableOfContents />
+	</aside>
 </div>
 
 <Footer />
