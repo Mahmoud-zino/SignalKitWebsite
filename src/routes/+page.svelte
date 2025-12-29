@@ -293,3 +293,27 @@ public class HealthUI : MonoBehaviour
 		</p>
 	</div>
 </section>
+
+<hr />
+
+<!-- CTA Section -->
+<section class="mx-auto max-w-4xl px-6 py-16 lg:py-24">
+	<div
+		class="rounded-2xl border border-primary-500/30 bg-gradient-to-br from-primary-500/10 to-secondary-500/10 p-8 text-center lg:p-12"
+	>
+		<h2 class="mb-4 text-3xl font-bold md:text-4xl">Ready to Decouple Your Game?</h2>
+		<p class="mx-auto mb-8 max-w-2xl text-lg text-surface-600-400">
+			Join developers building better Unity games with SignalKit. Start with our comprehensive
+			documentation or dive right into the code.
+		</p>
+		<div class="flex flex-wrap justify-center gap-4">
+			<a
+				href={resolve('/docs/getting-started')}
+				class="btn preset-filled-primary-500 px-8 py-3 text-lg"
+			>
+				Get Started
+			</a>
+			<a href={resolve('/docs')} class="btn preset-tonal px-8 py-3 text-lg"> View Documentation </a>
+		</div>
+	</div>
+</section>
