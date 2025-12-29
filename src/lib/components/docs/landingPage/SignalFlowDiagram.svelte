@@ -19,9 +19,8 @@
 <div
 	class="relative mx-auto max-w-2xl rounded-2xl border border-surface-500/30 bg-surface-50-950 p-8"
 >
-
 	<!-- Center Signal -->
-	<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+	<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
 		<div class="relative">
 			{#if pulseActive}
 				<div class="absolute inset-0 animate-ping rounded-full bg-primary-500 opacity-75"></div>
@@ -35,7 +34,7 @@
 	</div>
 
 	<!-- Top-left listener -->
-	<div class="absolute left-[16.67%] top-[20%] -translate-x-1/2 -translate-y-1/2">
+	<div class="absolute top-[20%] left-[16.67%] -translate-x-1/2 -translate-y-1/2">
 		<div class="relative">
 			{#if pulseActive}
 				<div class="absolute inset-0 animate-pulse rounded-full bg-primary-500 opacity-75"></div>
@@ -49,7 +48,7 @@
 	</div>
 
 	<!-- Top-right listener -->
-	<div class="absolute right-[16.67%] top-[20%] translate-x-1/2 -translate-y-1/2">
+	<div class="absolute top-[20%] right-[16.67%] translate-x-1/2 -translate-y-1/2">
 		<div class="relative">
 			{#if pulseActive}
 				<div class="absolute inset-0 animate-pulse rounded-full bg-primary-500 opacity-75"></div>
@@ -63,7 +62,7 @@
 	</div>
 
 	<!-- Bottom-right listener -->
-	<div class="absolute bottom-[20%] right-[16.67%] translate-x-1/2 translate-y-1/2">
+	<div class="absolute right-[16.67%] bottom-[20%] translate-x-1/2 translate-y-1/2">
 		<div class="relative">
 			{#if pulseActive}
 				<div class="absolute inset-0 animate-pulse rounded-full bg-primary-500 opacity-75"></div>
@@ -91,10 +90,10 @@
 	</div>
 
 	<!-- Spacer to maintain height -->
-	<div class="h-96"></div>
+	<div class="h-72 md:h-96"></div>
 
 	<!-- Legend -->
-	<div class="mt-8 flex items-center justify-center gap-8 text-sm text-surface-600-400">
+	<div class="mt-12 flex items-center justify-center gap-8 text-sm text-surface-600-400">
 		<div class="flex items-center gap-2">
 			<Radio class="size-5 text-primary-500" />
 			<span>Signal Channel</span>
