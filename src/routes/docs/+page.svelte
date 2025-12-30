@@ -199,7 +199,34 @@
 		</section>
 	{/each}
 
-	<section class="mt-16 rounded-2xl border border-primary-500/30 bg-primary-500/5 p-8">
+	<section class="mt-16 rounded-2xl border border-tertiary-500/30 bg-tertiary-500/5 p-8">
+		<h2 class="mb-3 text-2xl font-bold md:text-3xl">Example Assets</h2>
+		<p class="mb-4 text-surface-400">
+			All example scenes in SignalKit use beautiful 3D assets generously provided by
+			<a
+				href="https://kenney.nl/"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="anchor font-semibold"
+			>
+				Kenney
+			</a>
+			under the CC0 license. Kenney is a hard-working developer who creates thousands of free,
+			high-quality game assets for the community. While attribution isn't required, we're happy to
+			give credit where it's due. If you're looking for game assets, check out his incredible
+			collection at
+			<a
+				href="https://kenney.nl/"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="anchor font-semibold"
+			>
+				kenney.nl
+			</a>.
+		</p>
+	</section>
+
+	<section class="mt-12 rounded-2xl border border-primary-500/30 bg-primary-500/5 p-8">
 		<h2 class="mb-3 text-2xl font-bold md:text-3xl">Need Help?</h2>
 		<p class="mb-4 text-surface-400">
 			Can't find what you're looking for? Have questions or feedback? We're here to help.
