@@ -38,6 +38,13 @@
 					icon: BookOpen
 				},
 				{
+					title: 'Basic Concepts',
+					description:
+						'Understand the three building blocks of SignalKit: Channels, Listeners, and Signals.',
+					href: '/docs/basics',
+					icon: BookOpen
+				},
+				{
 					title: 'Quick Start',
 					description:
 						'Get up and running in minutes. Create your first signal channel, raise events, and listen to them.',

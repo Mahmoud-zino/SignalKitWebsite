@@ -20,6 +20,9 @@ If you'd rather explore the finished example before following the tutorial, you 
 
 Open this scene and press Play to see the example in action. You can then examine the scripts and setup to understand how everything works together. Come back to this tutorial when you're ready to build it yourself!
 
+> [!TIP]
+> If you're new to event systems, we recommend reading the [Basic Concepts](/docs/basics) guide first to understand how SignalKit works before diving into this tutorial.
+
 ## Step 1: Create a Signal Channel
 
 Signal channels are ScriptableObjects that act as event broadcasters. Let's create one for our score event.
@@ -150,27 +153,6 @@ public class ScoreDisplay : MonoBehaviour
 }
 ```
 
-### Understanding the Unit Type
-
-You might have noticed the `Unit _` parameter in the `OnPlayerScored` method. **What is `Unit`?**
-
-`Unit` is SignalKit's way of representing "void" or "no data". Since `VoidSignalChannel` is actually a `SignalChannel<Unit>` under the hood, the callback must accept a `Unit` parameter - even though we don't use it.
-
-**Why not just use `void`?**
-- C# doesn't allow `void` as a generic type parameter (you can't write `SignalChannel<void>`)
-- `Unit` is a special type that means "no meaningful value" but works with generics
-- The underscore `_` is a discard that says "I receive this but don't need it"
-
-**For typed signals** (like `IntSignalChannel`), you'd use the actual value:
-```csharp
-private void OnScoreChanged(int newScore)  // IntSignalChannel passes an int
-{
-    Debug.Log($"Score is now: {newScore}");
-}
-```
-
-Don't worry - this pattern becomes natural quickly, and it keeps SignalKit's architecture clean and consistent!
-
 ## Step 4: Listen From Code
 
 Sometimes you need more control than the Inspector provides. Let's add a sound effect that plays when the player scores.
@@ -228,13 +210,14 @@ Now let's set up a GameObject with this script:
 
 Now when the player collects a coin, you'll hear the sound effect!
 
-### Important: OnEnable/OnDisable Pattern
-
-Notice how we subscribe in `OnEnable()` and unsubscribe in `OnDisable()`. This is crucial:
-- **OnEnable**: Called when the GameObject becomes active
-- **OnDisable**: Called when the GameObject is disabled or destroyed
-
-This pattern ensures listeners are automatically cleaned up, preventing memory leaks and errors.
+> [!IMPORTANT]
+> **Always Unsubscribe in OnDisable()**
+>
+> Notice how we subscribe in `OnEnable()` and unsubscribe in `OnDisable()`. This is crucial:
+> - **OnEnable**: Called when the GameObject becomes active
+> - **OnDisable**: Called when the GameObject is disabled or destroyed
+>
+> This pattern ensures listeners are automatically cleaned up, preventing memory leaks and errors.
 
 ## Step 5: Test It All
 
@@ -260,62 +243,6 @@ You should see:
 
 All of this happens with **zero coupling** between the systems. The Coin doesn't know about the UI or AudioManager, and vice versa. They all just communicate through the signal channel!
 
-## Understanding the Benefits
-
-Let's compare this to traditional approaches:
-
-### Traditional Approach (Tightly Coupled)
-
-```csharp
-public class Coin : MonoBehaviour
-{
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            // Tightly coupled - Coin knows about UI and Audio
-            FindObjectOfType<ScoreDisplay>().AddScore(10);
-            FindObjectOfType<AudioManager>().PlayCoinSound();
-            Destroy(gameObject);
-        }
-    }
-}
-```
-
-**Problems:**
-- `Coin` is tightly coupled to `ScoreDisplay` and `AudioManager`
-- Hard to test in isolation
-- Difficult to add new listeners without modifying `Coin`
-- Performance issues with `FindObjectOfType`
-
-### SignalKit Approach (Decoupled)
-
-```csharp
-using UnityEngine;
-using SignalKit.Runtime.Core.Channels;
-
-public class Coin : MonoBehaviour
-{
-    [SerializeField] private VoidSignalChannel playerScoredSignal;
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerScoredSignal.Raise();
-            Destroy(gameObject);
-        }
-    }
-}
-```
-
-**Benefits:**
-- `Coin` only knows about the signal channel
-- Easy to test - just verify the signal is raised
-- Add new listeners without touching `Coin`
-- No performance overhead
-- Systems can be enabled/disabled independently
-
 ## Next Steps
 
 Congratulations! You've created your first signal-based event system. Here's what to explore next:
@@ -325,19 +252,21 @@ Congratulations! You've created your first signal-based event system. Here's wha
 - **[Listeners](/docs/listeners)** - Master the different ways to subscribe to signals
 - **[Editor Tools](/docs/editor-tools)** - Discover the powerful debugger and Inspector tools
 
-### Quick Tips
+> [!TIP]
+> **Quick Tips**
+>
+> 1. **Use Descriptive Names**: Name your channels clearly (e.g., "PlayerDiedSignal" not "Signal1")
+> 2. **Add Descriptions**: Use the description field in the Inspector to document what each signal does
+> 3. **Organize Your Channels**: Create a "Signals" folder in your project to keep channels organized
+> 4. **Always Unsubscribe**: Remember the OnEnable/OnDisable pattern to prevent memory leaks
+> 5. **Use the Debugger**: Open `Window > SignalKit > Debugger` to see signals being raised in real-time
 
-1. **Use Descriptive Names**: Name your channels clearly (e.g., "PlayerDiedSignal" not "Signal1")
-2. **Add Descriptions**: Use the description field in the Inspector to document what each signal does
-3. **Organize Your Channels**: Create a "Signals" folder in your project to keep channels organized
-4. **Always Unsubscribe**: Remember the OnEnable/OnDisable pattern to prevent memory leaks
-5. **Use the Debugger**: Open `Window > SignalKit > Debugger` to see signals being raised in real-time
-
-### Common Mistakes to Avoid
-
-- **Forgetting to Assign Channels**: Always check that your channel references are assigned in the Inspector
-- **Not Unsubscribing**: Always pair subscribe (`+=`) with unsubscribe (`-=`)
-- **Using Wrong Channel Type**: Make sure you're using the right channel type for your data (Void, Int, Float, etc.)
+> [!WARNING]
+> **Common Mistakes to Avoid**
+>
+> - **Forgetting to Assign Channels**: Always check that your channel references are assigned in the Inspector
+> - **Not Unsubscribing**: Always pair subscribe (`+=`) with unsubscribe (`-=`)
+> - **Using Wrong Channel Type**: Make sure you're using the right channel type for your data (Void, Int, Float, etc.)
 
 ## Troubleshooting
 

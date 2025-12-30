@@ -12,6 +12,9 @@ Before installing SignalKit, make sure your project meets the following requirem
 
 ## Installation Methods
 
+> [!TIP]
+> We recommend installing via the Unity Asset Store for automatic updates and easy package management.
+
 ### Unity Asset Store (Recommended)
 
 The primary way to get SignalKit is through the Unity Asset Store.
@@ -48,10 +51,14 @@ To verify that SignalKit was installed correctly:
 3. You can also check for the **SignalKit** namespace in your scripts:
 
 ```csharp
-using SignalKit;
+using SignalKit.Runtime.Core.Channels;
+using SignalKit.Runtime.Core.Listeners;
 ```
 
 If there are no compilation errors, SignalKit is ready to use!
+
+> [!NOTE]
+> SignalKit uses organized namespaces like `SignalKit.Runtime.Core.Channels` and `SignalKit.Runtime.Core.Listeners` to keep code well-structured. See the [Quick Start](/docs/quick-start) guide for complete examples.
 
 ## Next Steps
 
