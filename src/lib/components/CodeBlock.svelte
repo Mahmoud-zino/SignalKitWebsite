@@ -11,6 +11,7 @@
 
 		codeBlocks.forEach((pre) => {
 			if (pre.querySelector('.copy-button')) return;
+			if (pre.classList.contains('language-mermaid')) return;
 
 			const wrapper = document.createElement('div');
 			wrapper.className = 'code-block-wrapper';
