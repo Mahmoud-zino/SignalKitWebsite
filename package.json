@@ -30,6 +30,7 @@
 		"eslint-plugin-svelte": "^3.13.1",
 		"globals": "^16.5.0",
 		"mdsvex": "^0.12.6",
+		"playwright-chromium": "^1.57.0",
 		"prettier": "^3.7.4",
 		"prettier-plugin-svelte": "^3.4.0",
 		"prettier-plugin-tailwindcss": "^0.7.2",
@@ -45,6 +46,7 @@
 	},
 	"dependencies": {
 		"lucide-svelte": "^0.562.0",
+		"mermaid": "^11.12.2",
 		"unist-util-visit": "^5.0.0"
 	}
 }

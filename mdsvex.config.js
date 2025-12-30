@@ -16,6 +16,13 @@ const config = defineMDSveXConfig({
 
 	highlight: {
 		highlighter: async (code, lang) => {
+			if (lang === 'mermaid') {
+				const escaped = code
+					.replace(/`/g, '\\`')
+					.replace(/\$/g, '\\$');
+				return `{@html \`<pre class="language-mermaid"><code>${escaped}</code></pre>\` }`;
+			}
+
 			const html = await codeToHtml(code, {
 				lang: lang || 'plaintext',
 				theme: 'github-dark'
