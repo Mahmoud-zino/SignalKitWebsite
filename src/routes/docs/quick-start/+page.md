@@ -267,23 +267,8 @@ Congratulations! You've created your first signal-based event system. Here's wha
 > - **Forgetting to Assign Channels**: Always check that your channel references are assigned in the Inspector
 > - **Not Unsubscribing**: Always pair subscribe (`+=`) with unsubscribe (`-=`)
 > - **Using Wrong Channel Type**: Make sure you're using the right channel type for your data (Void, Int, Float, etc.)
-
-## Troubleshooting
-
-### "NullReferenceException: Object reference not set to an instance of an object"
-
-This usually means you forgot to assign the signal channel in the Inspector. Check all your `[SerializeField]` channel references.
-
-### "Signal raised but nothing happens"
-
-Make sure:
-1. Your listener is subscribed (check OnEnable is being called)
-2. The correct channel is assigned in both the raiser and listener
-3. The listener GameObject is active in the scene
-
-### "Events fire after GameObject is destroyed"
-
-You forgot to unsubscribe in `OnDisable()`. Always clean up your subscriptions!
+>
+> For more detailed troubleshooting, see the [Troubleshooting Guide](/docs/troubleshooting).
 
 ## Summary
 
