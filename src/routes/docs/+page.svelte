@@ -50,6 +50,13 @@
 						'Get up and running in minutes. Create your first signal channel, raise events, and listen to them.',
 					href: '/docs/quick-start',
 					icon: Zap
+				},
+				{
+					title: 'Cheat Sheet',
+					description:
+						'Quick reference guide for common SignalKit patterns, syntax, and best practices.',
+					href: '/docs/cheat-sheet',
+					icon: FileCode
 				}
 			]
 		},
