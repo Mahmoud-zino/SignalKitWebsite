@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        healthChangedSignal.Raise(currentHealth);
+        healthChangedSignal.Raise(damage);
     }
 }
 ```
@@ -269,14 +269,8 @@ Used by UI, audio, and game state systems."
 3. Watch signals being raised in real-time
 4. Click to ping the channel in Project
 
-### Common Issues
-
-| Issue | Solution |
-|-------|----------|
-| NullReferenceException | Channel not assigned in Inspector |
-| Event fires after destroy | Forgot to unsubscribe in OnDisable() |
-| Event doesn't fire | Channel reference mismatch (different assets) |
-| Multiple listeners not working | Check all listeners are enabled and subscribed |
+> [!TIP]
+> For detailed troubleshooting and solutions to common problems, see the [Troubleshooting Guide](/docs/troubleshooting).
 
 ## Keyboard Shortcuts
 

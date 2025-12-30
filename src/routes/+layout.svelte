@@ -39,7 +39,8 @@
 			{ label: 'Installation', href: '/docs/getting-started', icon: BookOpen },
 			{ label: 'Basic Concepts', href: '/docs/basics', icon: BookOpen },
 			{ label: 'Quick Start', href: '/docs/quick-start', icon: Zap },
-			{ label: 'Cheat Sheet', href: '/docs/cheat-sheet', icon: FileCode }
+			{ label: 'Cheat Sheet', href: '/docs/cheat-sheet', icon: FileCode },
+			{ label: 'Troubleshooting', href: '/docs/troubleshooting', icon: Wrench }
 		],
 		'Core Concepts': [
 			{ label: 'Overview', href: '/docs/core-concepts', icon: BookOpen },

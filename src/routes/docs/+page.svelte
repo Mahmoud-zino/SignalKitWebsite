@@ -57,6 +57,13 @@
 						'Quick reference guide for common SignalKit patterns, syntax, and best practices.',
 					href: '/docs/cheat-sheet',
 					icon: FileCode
+				},
+				{
+					title: 'Troubleshooting',
+					description:
+						'Common issues and their solutions - installation, setup, runtime errors, and editor tools.',
+					href: '/docs/troubleshooting',
+					icon: Wrench
 				}
 			]
 		},

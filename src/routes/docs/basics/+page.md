@@ -216,4 +216,4 @@ private void OnScoreChanged(int newScore)  // Use the value
 
 Ready to build something? Check out the [Quick Start](/docs/quick-start) guide where you'll create your first signal-based system in just a few minutes!
 
-Want to learn more about the architecture? Explore the [Core Concepts](/docs/core-concepts) page for an in-depth explanation.
+Want to dive deeper? The [Core Concepts](/docs/core-concepts) page provides an in-depth technical explanation with architecture diagrams, signal flow visualizations, and advanced patterns.
