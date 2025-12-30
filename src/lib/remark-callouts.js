@@ -1,0 +1,84 @@
+import { visit } from 'unist-util-visit';
+
+// Lucide icon SVG paths
+const iconPaths = {
+	note: 'M12 16v-4m0-4h.01M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10z',
+	tip: 'M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5M9 18h6M10 22h4',
+	important: 'M12 9v4m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z',
+	warning: 'M12 9v4m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z',
+	caution: 'M12 8v4m0 4h.01M7.86 2h8.28L22 7.86v8.28L16.14 22H7.86L2 16.14V7.86z'
+};
+
+/**
+ * Custom remark plugin to transform GitHub-style callouts
+ * Transforms: > [!NOTE] into styled blockquotes with icons
+ */
+export function remarkCallouts() {
+	return (tree) => {
+		visit(tree, 'blockquote', (node) => {
+			// Check if the first child is a paragraph
+			if (!node.children || node.children.length === 0) return;
+
+			const firstChild = node.children[0];
+			if (firstChild.type !== 'paragraph') return;
+
+			// Check if the paragraph starts with [!TYPE] (parsed as linkReference)
+			const firstNode = firstChild.children[0];
+			if (!firstNode) return;
+
+			// Check for linkReference node (markdown parses [!NOTE] as a link reference)
+			if (firstNode.type === 'linkReference') {
+				const identifier = firstNode.identifier || '';
+				const match = identifier.match(/^!(note|tip|important|warning|caution)$/i);
+
+				if (match) {
+					const type = match[1].toLowerCase();
+
+					// Remove the linkReference node from the paragraph
+					firstChild.children.shift();
+
+					// Clean up any leading newline/whitespace in the remaining text
+					if (firstChild.children.length > 0 && firstChild.children[0].type === 'text') {
+						firstChild.children[0].value = firstChild.children[0].value.replace(/^\s+/, '');
+					}
+
+					// If the first paragraph is now empty, remove it
+					if (firstChild.children.length === 0) {
+						node.children.shift();
+					}
+
+					// Add custom properties to the blockquote node
+					node.data = node.data || {};
+					node.data.hProperties = node.data.hProperties || {};
+					node.data.hProperties.className = ['callout', `callout-${type}`];
+
+					// Create SVG icon node
+					const svgIcon = {
+						type: 'html',
+						value: `<svg class="callout-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="${iconPaths[type]}"/></svg>`
+					};
+
+					// Add a title paragraph at the beginning with icon
+					const titleNode = {
+						type: 'paragraph',
+						data: {
+							hProperties: {
+								className: ['callout-title']
+							}
+						},
+						children: [
+							svgIcon,
+							{
+								type: 'text',
+								value: type.charAt(0).toUpperCase() + type.slice(1)
+							}
+						]
+					};
+
+					// Insert title as first child
+					node.children.unshift(titleNode);
+				}
+			}
+		});
+	};
+}

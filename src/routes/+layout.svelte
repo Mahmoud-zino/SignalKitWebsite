@@ -37,6 +37,7 @@
 	const navGroups = {
 		'Getting Started': [
 			{ label: 'Installation', href: '/docs/getting-started', icon: BookOpen },
+			{ label: 'Basic Concepts', href: '/docs/basics', icon: BookOpen },
 			{ label: 'Quick Start', href: '/docs/quick-start', icon: Zap }
 		],
 		'Core Concepts': [
