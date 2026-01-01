@@ -20,9 +20,6 @@ If you'd rather explore the finished example before following the tutorial, you 
 
 Open this scene and press Play to see the example in action. You can then examine the scripts and setup to understand how everything works together. Come back to this tutorial when you're ready to build it yourself!
 
-> [!TIP]
-> If you're new to event systems, we recommend reading the [Basic Concepts](/docs/basics) guide first to understand how SignalKit works before diving into this tutorial.
-
 ## Step 1: Create a Signal Channel
 
 Signal channels are ScriptableObjects that act as event broadcasters. Let's create one for our score event.
@@ -243,14 +240,9 @@ You should see:
 
 All of this happens with **zero coupling** between the systems. The Coin doesn't know about the UI or AudioManager, and vice versa. They all just communicate through the signal channel!
 
-## Next Steps
+## Congratulations!
 
-Congratulations! You've created your first signal-based event system. Here's what to explore next:
-
-- **[Core Concepts](/docs/core-concepts)** - Deep dive into how SignalKit works under the hood
-- **[Channels](/docs/channels)** - Learn about typed channels that pass data (Int, Float, String, etc.)
-- **[Listeners](/docs/listeners)** - Master the different ways to subscribe to signals
-- **[Editor Tools](/docs/editor-tools)** - Discover the powerful debugger and Inspector tools
+You've created your first signal-based event system with SignalKit!
 
 > [!TIP]
 > **Quick Tips**
@@ -279,4 +271,3 @@ You've learned:
 - ✓ How to subscribe/unsubscribe via code (OnEnable/OnDisable)
 - ✓ Why decoupling is powerful for game architecture
 
-Ready to level up? Check out the [Core Concepts](/docs/core-concepts) guide to understand the full power of SignalKit.

@@ -64,18 +64,13 @@ If there are no compilation errors, SignalKit is ready to use!
 
 Now that you have SignalKit installed, you're ready to start building decoupled systems:
 
-- **[Basic Concepts](/docs/basics)** - Understand the three building blocks of SignalKit
 - **[Quick Start](/docs/quick-start)** - Create your first signal in 5 minutes
-- **[Core Concepts](/docs/core-concepts)** - Deep dive into architecture and advanced patterns
-- **[Channels](/docs/channels)** - Learn about all signal channel types
-- **[Listeners](/docs/listeners)** - Master the different ways to listen to signals
 
 ## Getting Help
 
 Need help with installation? Here's how to get support:
 
 - 📚 **[Documentation](/docs)** - Browse the full documentation
-- 🔧 **[Troubleshooting](/docs/troubleshooting)** - Common issues and solutions
 - 🐛 **[Report an Issue](https://github.com/Mahmoud-zino/SignalKitWebsite/issues/new?labels=bug)** - Found a bug or installation problem
 - 💡 **[Request a Feature](https://github.com/Mahmoud-zino/SignalKitWebsite/issues/new?labels=enhancement)** - Suggest new features or improvements
 - 🛒 **Unity Asset Store** - Leave a question in the Asset Store Q&A section
