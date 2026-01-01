@@ -35,27 +35,9 @@
 	}
 
 	const navGroups = {
-		'Getting Started': [
+		Documentation: [
 			{ label: 'Installation', href: '/docs/getting-started', icon: BookOpen },
-			{ label: 'Basic Concepts', href: '/docs/basics', icon: BookOpen },
-			{ label: 'Quick Start', href: '/docs/quick-start', icon: Zap },
-			{ label: 'Cheat Sheet', href: '/docs/cheat-sheet', icon: FileCode },
-			{ label: 'Troubleshooting', href: '/docs/troubleshooting', icon: Wrench }
-		],
-		Advanced: [
-			{ label: 'Features', href: '/docs/features', icon: Activity },
-			{ label: 'Editor Tools', href: '/docs/editor-tools', icon: Wrench },
-			{ label: 'Code Generation', href: '/docs/code-generation', icon: Code },
-			{ label: 'Integrations', href: '/docs/integrations', icon: Puzzle }
-		],
-		Examples: [
-			{ label: 'Basic Examples', href: '/examples/basic', icon: FlaskConical },
-			{ label: 'Inventory System', href: '/examples/inventory', icon: FlaskConical },
-			{ label: 'UI Events', href: '/examples/ui', icon: FlaskConical }
-		],
-		Reference: [
-			{ label: 'API Reference', href: '/docs/api-reference', icon: FileCode },
-			{ label: 'Changelog', href: '/changelog', icon: History }
+			{ label: 'Quick Start', href: '/docs/quick-start', icon: Zap }
 		]
 	};
 </script>
