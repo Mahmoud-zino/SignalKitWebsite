@@ -42,12 +42,6 @@
 			{ label: 'Cheat Sheet', href: '/docs/cheat-sheet', icon: FileCode },
 			{ label: 'Troubleshooting', href: '/docs/troubleshooting', icon: Wrench }
 		],
-		'Core Concepts': [
-			{ label: 'Overview', href: '/docs/core-concepts', icon: BookOpen },
-			{ label: 'Channels', href: '/docs/channels', icon: Radio },
-			{ label: 'Listeners', href: '/docs/listeners', icon: Ear },
-			{ label: 'Events', href: '/docs/events', icon: Activity }
-		],
 		Advanced: [
 			{ label: 'Features', href: '/docs/features', icon: Activity },
 			{ label: 'Editor Tools', href: '/docs/editor-tools', icon: Wrench },
