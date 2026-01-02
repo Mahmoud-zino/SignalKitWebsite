@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import SignalFlowDiagram from '$lib/components/docs/landingPage/SignalFlowDiagram.svelte';
+	import ComparisonTable from '$lib/components/docs/landingPage/ComparisonTable.svelte';
+	import WhoIsThisFor from '$lib/components/docs/landingPage/WhoIsThisFor.svelte';
+	import FAQ from '$lib/components/docs/landingPage/FAQ.svelte';
 	import HighlightedCode from '$lib/components/HighlightedCode.svelte';
 	import { Unplug, Eye, CodeXml, Zap, Wrench } from 'lucide-svelte';
 
@@ -53,23 +56,64 @@ public class HealthUI : MonoBehaviour
 	];
 </script>
 
+<svelte:head>
+	<title>SignalKit - Build Unity Games Like a Pro | Decoupled Event System</title>
+	<meta
+		name="description"
+		content="Stop fighting spaghetti code. SignalKit gives you AAA architecture with zero coupling, visual debugging, and type-safe events for Unity. Built on ScriptableObjects."
+	/>
+	<meta
+		name="keywords"
+		content="Unity, SignalKit, ScriptableObjects, event system, decoupling, Unity plugin, C# events, game architecture, Unity Asset Store"
+	/>
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://signalkit.dev/" />
+	<meta property="og:title" content="SignalKit - Build Unity Games Like a Pro" />
+	<meta
+		property="og:description"
+		content="Stop fighting spaghetti code. Build scalable Unity games with zero coupling, visual debugging, and type-safe events."
+	/>
+	<meta property="og:image" content="https://signalkit.dev/og-image.png" />
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:url" content="https://signalkit.dev/" />
+	<meta property="twitter:title" content="SignalKit - Build Unity Games Like a Pro" />
+	<meta
+		property="twitter:description"
+		content="Stop fighting spaghetti code. Build scalable Unity games with zero coupling, visual debugging, and type-safe events."
+	/>
+	<meta property="twitter:image" content="https://signalkit.dev/og-image.png" />
+
+	<!-- Additional SEO -->
+	<meta name="author" content="SignalKit" />
+	<meta name="robots" content="index, follow" />
+	<link rel="canonical" href="https://signalkit.dev/" />
+</svelte:head>
+
 <!-- Hero Section -->
 <section class="mx-auto max-w-5xl px-6 pt-2 pb-12">
 	<div class="text-center">
-		<h1 class="text-5xl leading-tight font-bold md:text-6xl lg:text-7xl">SignalKit</h1>
+		<h1 class="text-5xl leading-tight font-bold md:text-6xl lg:text-7xl">
+			Build Unity Games Like a Pro
+		</h1>
 		<p class="mt-6 text-2xl text-primary-400 md:text-3xl">
-			Decouple your Unity project. The modern way.
+			Stop fighting spaghetti code. Build scalable games—without the complexity.
 		</p>
 		<p class="mx-auto mt-4 max-w-2xl text-lg text-surface-600-400">
-			Event-driven architecture built on ScriptableObjects. Type-safe, visual debugging, zero
-			coupling.
+			SignalKit gives you AAA architecture with zero coupling, visual debugging, and type-safe
+			events. Built on ScriptableObjects.
 		</p>
 		<div class="mt-8 flex flex-wrap justify-center gap-4">
 			<a
-				href={resolve('/docs/getting-started')}
+				href="https://assetstore.unity.com/packages/tools/integration/signalkit-PLACEHOLDER"
 				class="btn preset-filled-primary-500 px-8 py-3 text-lg"
+				target="_blank"
+				rel="noopener noreferrer"
 			>
-				Get Started
+				Get SignalKit
 			</a>
 			<a href={resolve('/docs')} class="btn preset-tonal px-8 py-3 text-lg"> View Documentation </a>
 		</div>
@@ -168,6 +212,11 @@ public class HealthUI : MonoBehaviour
 		</div>
 	</div>
 </section>
+
+<hr />
+
+<!-- Comparison Table Section -->
+<ComparisonTable />
 
 <hr />
 
@@ -296,6 +345,16 @@ public class HealthUI : MonoBehaviour
 
 <hr />
 
+<!-- Who Is This For Section -->
+<WhoIsThisFor />
+
+<hr />
+
+<!-- FAQ Section -->
+<FAQ />
+
+<hr />
+
 <!-- CTA Section -->
 <section class="mx-auto max-w-4xl px-6 py-16 lg:py-24">
 	<div
@@ -303,15 +362,16 @@ public class HealthUI : MonoBehaviour
 	>
 		<h2 class="mb-4 text-3xl font-bold md:text-4xl">Ready to Decouple Your Game?</h2>
 		<p class="mx-auto mb-8 max-w-2xl text-lg text-surface-600-400">
-			Join developers building better Unity games with SignalKit. Start with our comprehensive
-			documentation or dive right into the code.
+			Join developers building better Unity games with SignalKit. Get started today.
 		</p>
 		<div class="flex flex-wrap justify-center gap-4">
 			<a
-				href={resolve('/docs/getting-started')}
+				href="https://assetstore.unity.com/packages/tools/integration/signalkit-PLACEHOLDER"
 				class="btn preset-filled-primary-500 px-8 py-3 text-lg"
+				target="_blank"
+				rel="noopener noreferrer"
 			>
-				Get Started
+				Get SignalKit
 			</a>
 			<a href={resolve('/docs')} class="btn preset-tonal px-8 py-3 text-lg"> View Documentation </a>
 		</div>

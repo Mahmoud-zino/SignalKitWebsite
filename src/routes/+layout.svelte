@@ -1,18 +1,6 @@
 <script lang="ts">
 	import './layout.css';
-	import {
-		BookOpen,
-		Zap,
-		Radio,
-		Ear,
-		Activity,
-		Wrench,
-		Code,
-		Puzzle,
-		FlaskConical,
-		FileCode,
-		History
-	} from 'lucide-svelte';
+	import { BookOpen, Zap } from 'lucide-svelte';
 	import Header from '$lib/components/Header.svelte';
 	import Sidebar from '$lib/components/Sidebar.svelte';
 	import Footer from '$lib/components/Footer.svelte';

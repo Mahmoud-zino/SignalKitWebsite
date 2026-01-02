@@ -3,7 +3,7 @@ import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { codeToHtml } from 'shiki';
 import rehypeSlug from 'rehype-slug';
-import { remarkCallouts } from './src/lib/remark-callouts.js';
+import { remarkCallouts } from './src/lib/remark-callouts.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

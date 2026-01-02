@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 
 	interface BreadcrumbItem {
 		label: string;
@@ -7,7 +7,7 @@
 	}
 
 	const breadcrumbs = $derived.by(() => {
-		const path = $page.url.pathname;
+		const path = page.url.pathname;
 
 		if (path === '/') return [];
 

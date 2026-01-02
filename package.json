@@ -24,7 +24,10 @@
 		"@tailwindcss/forms": "^0.5.10",
 		"@tailwindcss/typography": "^0.5.19",
 		"@tailwindcss/vite": "^4.1.17",
+		"@types/hast": "^3.0.4",
+		"@types/mdast": "^4.0.4",
 		"@types/node": "^24",
+		"@types/unist": "^3.0.3",
 		"eslint": "^9.39.1",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.13.1",
@@ -41,6 +44,7 @@
 		"tailwindcss": "^4.1.17",
 		"typescript": "^5.9.3",
 		"typescript-eslint": "^8.48.1",
+		"unified": "^11.0.5",
 		"vite": "^7.2.6",
 		"vite-plugin-devtools-json": "^1.0.0"
 	},
