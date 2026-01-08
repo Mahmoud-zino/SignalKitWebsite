@@ -1,6 +1,21 @@
 <script lang="ts">
 	import './layout.css';
-	import { BookOpen, Zap, Radio, ToggleLeft, Hash, Percent, MessageSquare, Move, Grid3x3, Box, Palette, Cpu } from 'lucide-svelte';
+	import {
+		BookOpen,
+		Zap,
+		Radio,
+		ToggleLeft,
+		Hash,
+		Percent,
+		MessageSquare,
+		Move,
+		Grid3x3,
+		Box,
+		Palette,
+		Cpu,
+		Activity,
+		Funnel
+	} from 'lucide-svelte';
 	import Header from '$lib/components/Header.svelte';
 	import Sidebar from '$lib/components/Sidebar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
@@ -44,6 +59,24 @@
 			{ label: 'GameObject Signal', href: '/docs/channels/gameobject', icon: Box },
 			{ label: 'Transform Signal', href: '/docs/channels/transform', icon: Move },
 			{ label: 'Custom Channels', href: '/docs/channels/custom', icon: Cpu }
+		],
+		'Advanced Features': [
+			{ label: 'Priority System', href: '/docs/features/priority', icon: Activity },
+			{ label: 'Filters', href: '/docs/features/filters', icon: Funnel },
+			{ label: 'One-Shot Listeners', href: '/docs/features/one-shot', icon: Radio },
+			{ label: 'Delayed Raising', href: '/docs/features/delayed-raising', icon: Radio },
+			{ label: 'Buffered Subscriptions', href: '/docs/features/buffered-subscriptions', icon: Radio },
+			{ label: 'Event Throttling', href: '/docs/features/throttling', icon: Radio }
+		],
+		'Editor Tools': [
+			{ label: 'Code Generation', href: '/docs/tools/code-generation', icon: Cpu },
+			{ label: 'Recording & Playback', href: '/docs/tools/recording', icon: Radio }
+		],
+		'Integrations': [
+			{ label: 'UnityEvents', href: '/docs/integrations/unityevents', icon: Radio },
+			{ label: 'Input System', href: '/docs/integrations/input-system', icon: Radio },
+			{ label: 'Timeline', href: '/docs/integrations/timeline', icon: Radio },
+			{ label: 'Animator', href: '/docs/integrations/animator', icon: Radio }
 		]
 	};
 </script>
