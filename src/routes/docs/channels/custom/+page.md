@@ -260,6 +260,6 @@ public class InventorySignalChannel : SignalChannel<InventoryChangeData>
 
 Now that you know all channel types, explore advanced features:
 
-- **Priority System** - Control listener execution order
-- **Filters** - Conditional listening
-- **One-Shot Listeners** - Auto-unsubscribe after first raise
+- [**Priority System**](/docs/features/priority) - Control listener execution order
+- [**Filters**](/docs/features/filters) - Conditional listening
+- [**One-Shot Listeners**](/docs/features/one-shot) - Auto-unsubscribe after first raise
